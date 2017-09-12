@@ -40,10 +40,9 @@ DocumentProcessorStub::DocumentProcessorStub(const QString &project)
 
 void DocumentProcessorStub::addToRun(const QString &filePath, const QString &docContent)
 {
-    QString fileName = QFileInfo(filePath).fileName();
-    DocumentSource fileInfo(filePath, docContent);
+    const DocumentSource fileInfo(filePath, docContent);
 
-    m_documents.insert(fileName, fileInfo);
+    m_documents.append(fileInfo);
 
     if (docContent.contains("SUCCESS"))
         m_state = State::Successful;
@@ -55,9 +54,9 @@ void DocumentProcessorStub::addToRun(const QString &filePath, const QString &doc
 
 void DocumentProcessorStub::run()
 {
-    for (auto it = m_documents.begin(); it != m_documents.cend(); ++it) {
-        auto modules = std::make_shared<Data::Module>(it.key());
-        m_results.push_back(std::make_unique<ParsedDocument>(modules, it.value()));
+    for (const auto &doc : m_documents) {
+        auto modules = std::make_shared<Data::Module>(doc.fileName());
+        m_results.push_back(std::make_unique<ParsedDocument>(modules, doc));
     }
 
     emit processingFinished(m_projectName);
