@@ -56,9 +56,8 @@ void DocumentProcessorStub::addToRun(const QString &filePath, const QString &doc
 void DocumentProcessorStub::run()
 {
     for (auto it = m_documents.begin(); it != m_documents.cend(); ++it) {
-        auto modules = std::make_unique<Data::Module>();
-        std::unique_ptr<ParsedDocument> parsedDocument(new ParsedDocument(std::move(modules), it.value()));
-        m_results.push_back(std::move(parsedDocument));
+        auto modules = std::make_shared<Data::Module>(it.key());
+        m_results.push_back(std::make_unique<ParsedDocument>(modules, it.value()));
     }
 
     emit processingFinished(m_projectName);
