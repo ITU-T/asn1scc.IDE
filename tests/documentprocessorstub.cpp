@@ -28,7 +28,7 @@
 #include <QList>
 #include <QFileInfo>
 
-#include "../data/module.h"
+#include "../data/file.h"
 
 using namespace Asn1Acn::Internal;
 using namespace Asn1Acn::Internal::Tests;
@@ -55,7 +55,7 @@ void DocumentProcessorStub::addToRun(const QString &filePath, const QString &doc
 void DocumentProcessorStub::run()
 {
     for (const auto &doc : m_documents) {
-        auto modules = std::make_shared<Data::Module>(doc.fileName());
+        auto modules = std::make_shared<Data::File>(doc.fileName());
         m_results.push_back(std::make_unique<ParsedDocument>(modules, doc));
     }
 
