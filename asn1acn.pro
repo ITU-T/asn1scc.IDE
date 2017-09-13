@@ -144,7 +144,7 @@ HEADERS += \
     data/file.h \
     data/visitor.h \
     \
-    model/displayrolevisitor.cpp \
+    model/displayrolevisitor.h \
     \
     options-pages/general.h \
     options-pages/service.h \
