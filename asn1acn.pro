@@ -148,6 +148,7 @@ HEADERS += \
     data/node.h \
     data/file.h \
     data/visitor.h \
+    data/visitorwithvalue.h \
     \
     model/displayrolevisitor.h \
     model/childrencountingvisitor.h \
