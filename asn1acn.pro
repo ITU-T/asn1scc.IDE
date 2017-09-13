@@ -75,7 +75,10 @@ SOURCES += \
     data/visitor.cpp \
     \
     model/displayrolevisitor.cpp \
-    model/treeviewchildrencountingvisitor.cpp \
+    model/childrencountingvisitor.cpp \
+    model/childreturningvisitor.cpp \
+    model/indexfindingvisitor.cpp \
+    model/outlinemodel.cpp \
     \
     options-pages/general.cpp \
     options-pages/service.cpp \
@@ -147,7 +150,10 @@ HEADERS += \
     data/visitor.h \
     \
     model/displayrolevisitor.h \
-    model/treeviewchildrencountingvisitor.h \
+    model/childrencountingvisitor.h \
+    model/childreturningvisitor.h \
+    model/indexfindingvisitor.h \
+    model/outlinemodel.h \
     \
     options-pages/general.h \
     options-pages/service.h \
